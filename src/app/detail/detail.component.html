@@ -1,0 +1,221 @@
+<img src="{{this.restaurant?.imageURL}}" style="width: 100%; height: 300px; object-fit: cover;" alt="">
+
+<div class="container" style="margin-left: 40px; margin-top: 40px;">
+
+
+    <div style="display: flex; justify-content: space-between;">
+
+        <h1>{{restaurant?.name}}</h1>
+        <button type="button" class="btn btn-primary" [routerLink]="['/reserve']">Reserve</button>
+
+    </div>
+
+    <br>
+
+    <span class="badge bg-success">{{restaurant?.averageRating}} <i class="fa fa-star" aria-hidden="true"></i></span>
+    <br><br>
+
+    <div style="display: flex;">
+
+
+
+        <div style="margin-right: 10px;">
+            <h3><span class="badge bg-primary">{{this.restaurant.restaurantType}}</span></h3>
+        </div>
+
+        <div>
+            <h3><span class="badge bg-primary">{{this.restaurant.priceCategory}}</span></h3>
+        </div>
+
+    </div>
+
+</div>
+
+<br>
+
+<div>
+
+    <div style="margin: 40px;">
+
+        <h5>
+            {{this.restaurant.description}}
+        </h5>
+
+
+
+    </div>
+  
+
+</div>
+
+
+<br>
+<br>
+
+
+
+<div class="container">
+    <div class="row featurette" style="margin: auto;">
+        <div class="col-md-7 order-md-2">
+            <h2 class="featurette-heading">{{this.pictures[0].header}}
+            </h2>
+            <p class="lead">{{this.pictures[0].description}}</p>
+        </div>
+        <div class="col-md-5 order-md-1">
+            <div class="featurette-image img-fluid mx-auto ">
+                <img src="{{this.pictures[0].imageURL}}" style="width:400px !important; height: 400px;" alt="">
+            </div>
+
+        </div>
+    </div>
+
+
+
+
+    <br>
+    <hr class="featurette-divider">
+    <br>
+    <div class="row featurette" style="margin: auto;">
+        <div class="col-md-7">
+            <h2 class="featurette-heading">{{this.pictures[1].header}}
+            </h2>
+            <p class="lead">{{this.pictures[1].description}}</p>
+        </div>
+        <div class="col-md-5">
+            <div class="featurette-image img-fluid mx-auto ">
+                <img src="{{this.pictures[1].imageURL}}" style="width:400px !important; height: 400px;" alt="">
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+<!--Reviews-->
+<div style="margin: 50px;">
+
+    <h1>Reviews</h1>
+
+    <br>
+    <br>
+    <div class="container" id="main-container">
+        <div class="row" style="margin: 0;">
+            <div *ngFor="let review of this.reviews " class="col-md-6 col-xl-3">
+    
+                <div class="card p-3 mb-2">
+                    <div class="d-flex justify-content-between">
+                        <div class="d-flex flex-row align-items-center">
+                            <div class="icon"> <i class="bx bxl-mailchimp"></i> </div>
+                            <div class="ms-2 c-details">
+                                <div class="col-6">
+               
+                                </div>
+                                <h6 class="mb-0"> <span> days ago</span></h6> 
+                            </div>
+                        </div>
+                        <div class="badge"> <span>{{review?.rating}}  <i class="fa fa-star" aria-hidden="true"></i> </span> </div>
+                    </div>
+                    <div class="mt-5">
+                        <h3 class="heading">{{review.header}}<br></h3>
+    
+                        <h6>{{review.comment}}</h6>
+    
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+    
+    </div>
+
+
+</div>
+
+
+<!--Pictures-->
+<div style="margin: 50px;">
+
+    <h1>Pictures</h1>
+
+    <br>
+    <br>
+
+    <div class="container" id="main-container">
+        <div class="row" style="margin: 0;">
+            <div *ngFor="let pic of this.pictures " class="col-md-6 col-xl-3">
+    
+                <img
+                src="{{pic.imageURL}}"
+                class="w-100 shadow-1-strong rounded mb-4"
+                alt="Boat on Calm Water"
+              />
+            </div>
+        </div>
+    </div>
+</div>
+
+<div style="margin: 50px;">
+
+    <h1>Pictures</h1>
+
+    <br>
+    <br>
+
+    <div class="container" id="main-container">
+        <div class="row" style="margin: 0;">
+            <div *ngFor="let pic of this.pictures " class="col-md-6 col-xl-3">
+    
+                <img
+                src="{{pic.imageURL}}"
+                class="w-100 shadow-1-strong rounded mb-4"
+                alt="Boat on Calm Water"
+              />
+            </div>
+        </div>
+    
+    
+    </div>
+
+
+</div>
+
+
+
+<!--Map-->
+<div style="margin: 50px !important;">
+
+    <h1>Address</h1>
+    <br>
+    <br>
+
+    <div class="container">
+        <app-detail-map [restaurant]="this.restaurant"></app-detail-map>
+
+
+    </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div>
+    <a [routerLink]="['/reserve',this.restaurant.restaurant_ID]"> Here to the reserve</a>
+</div>
